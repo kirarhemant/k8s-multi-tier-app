@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - name: mysql
+        resources:
+          requests:
+            cpu: "250m"    # 0.5 CPU cores
+            memory: "512Mi"   # 1 GB RAM
+          limits:
+            cpu: "500m"       # Max 1 CPU core 
+            memory: "1Gi"   # Max 2 GB RAM
+        image: kirarhemant/mysql-db:v1
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: db-password
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: db-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: db-storage
+        persistentVolumeClaim:
+          claimName: db-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+spec:
+  selector:
+    app: db
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+  # ClusterIP makes the DB accessible only within the cluster
+  type: ClusterIP
