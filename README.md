@@ -9,6 +9,7 @@ Deployment of a Flask API with MySQL database on GKE Autopilot, demonstrating:
 - High availability for stateful services
 
 ## Repository Contents
+- **Repository link**: [`k8s-multi-tier-app`](https://github.com/kirarhemant/k8s-multi-tier-app/)
 ```bash
 k8s-multi-tier-app/
 ├── app/
