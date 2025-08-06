@@ -136,3 +136,11 @@ Database Tier:
 1. Single replica with persistent storage
 2. Automatic recovery with data preservation
 3. Internal ClusterIP service
+
+## Video URLs
+1.	https://nagarro-my.sharepoint.com/:v:/p/hemant_kirar/ETxD5c14W95Ci0SaOMgFxhkBmb5hy5yC6NI27hqKxtCT2w?e=so4YuE
+2.	https://drive.google.com/file/d/18_0J3syWamEHynSoWzbIsvRq1X-vD3Ls/view?usp=sharing
+
+## Documentation URL
+1. https://docs.google.com/document/d/1AjavmOMDcVSR4T86ZqYczNRaRepuXF9i/edit?usp=sharing&ouid=113607348276414369660&rtpof=true&sd=true
+
